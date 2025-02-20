@@ -13,9 +13,9 @@ trait ResolvesResourceFields
      * Get the fields that are available for the given request.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return \Illuminate\Support\Collection
+     * @return \Laravel\Nova\Fields\FieldCollection<int, \Laravel\Nova\Fields\Field>
      */
-    public function availableFields(NovaRequest $request)
+    public function availableFields(NovaRequest $request): FieldCollection
     {
         if($this->isDisplayingIndexFields($request)) {
             return new FieldCollection($this->getIndexTableFields($request));
